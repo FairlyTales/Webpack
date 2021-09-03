@@ -1,29 +1,22 @@
-const path = require("path");
-const common = require("./webpack.common");
-const merge = require("webpack-merge");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const common = require('./webpack.common.js');
+const { merge } = require('webpack-merge');
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: './images/[name].[hash].[ext]',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/template.html"
-    })
-  ],
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: [
-          "style-loader", //3. Inject styles into DOM
-          "css-loader", //2. Turns css into commonjs
-          "sass-loader" //1. Turns sass into css
-        ]
-      }
-    ]
-  }
+        // * order in which the loaders are applied are reversed
+        // * here we go from sass-loader to css-loader to style-loader
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
 });

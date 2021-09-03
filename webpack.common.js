@@ -1,27 +1,26 @@
-const path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: "./src/index.js",
-    vendor: "./src/vendor.js"
+    main: './src/index.js',
+    vendor: './src/vendor.js',
   },
   module: {
     rules: [
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ['html-loader'],
       },
       {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[hash].[ext]",
-            outputPath: "imgs"
-          }
-        }
-      }
-    ]
-  }
+        test: /\.(svg|png|jpg|gif).$/,
+        type: 'asset/resource',
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/template.html',
+    }),
+  ],
 };
