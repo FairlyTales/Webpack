@@ -1,2 +1,2 @@
-# Webpack Course
-Just a Webpack course what else have you expected to see here? ¯\\\_(ツ)\_/¯
+# Webpack
+Just learning a Webpack. What else have you expected here? ¯\\\_(ツ)\_/¯
