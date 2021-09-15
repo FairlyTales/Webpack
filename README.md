@@ -1,2 +1,2 @@
 # Webpack
-Just learning a Webpack. What else have you expected here? ¯\\\_(ツ)\_/¯
+Just some Webpack. What else have you expected here? ¯\\\_(ツ)\_/¯
